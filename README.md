@@ -1,2 +1,3 @@
 # Emoji_ISA
-This repo contains an Assembler, Disassembler, and Emulator for a 16 bit fixed width architecture who's op codes are emojis.
+
+https://docs.google.com/spreadsheets/d/13FGwBpEzgSeMo_fstNDc-kcDRaL3zNNQg8AOvlZyWOs/edit?usp=sharing
