@@ -10,7 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EmojiLibrary\EmojiLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestFile.emoji">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

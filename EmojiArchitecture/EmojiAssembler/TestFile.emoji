@@ -1,0 +1,14 @@
+﻿;print 1 to user input
+💎	r9	0x01	;init 1
+💎	r10	0x01	;init counter
+read:
+💩	r11	0x08	;load read flag
+🍂	r11	read	;loop back if read not available
+💩	r11	0x07	;read short
+loop:
+🏪	r10	0x03	;write counter
+🏪	r9	0x04	;flip write flag
+👆	r10			;add 1
+🌓	r12	r10	r11	;check counter
+🍃	r12	loop	;loop back if counter is less than user input
+🏪	r9	0x00	;exit prog
