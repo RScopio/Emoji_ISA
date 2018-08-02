@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using EmojiLibrary;
 
 namespace EmojiAssembler
 {
@@ -13,10 +14,29 @@ namespace EmojiAssembler
 
             for (int i = 0; i < lines.Length; i++)
             {
-                var instruction = new StringBuilder(lines[i]);
-                //clear comment
-                //remove line if empty
-                //read op code
+                var instruction = lines[i].Split(';')[0].Trim().Split(' ');
+                if (instruction.Length == 0) continue;
+                if (!EmojiInfo.OpCodes.ContainsKey(instruction[0]))
+                {
+                    throw new InvalidOperationException($"\nError: Invalid OpCode {instruction[0]} on line { i + 1 }");
+                }
+
+                switch (EmojiInfo.OpCodes[instruction[0]].Format)
+                {
+                    case OpFormat.PPP:
+                        break;
+                    case OpFormat.PPR:
+                        break;
+                    case OpFormat.PRR:
+                        break;
+                    case OpFormat.RRR:
+                        break;
+                    case OpFormat.PV:
+                        break;
+                    case OpFormat.RV:
+                        break;
+                }
+
                 //check if format valid
                 //convert each argument
                 //if label, store line number + 1

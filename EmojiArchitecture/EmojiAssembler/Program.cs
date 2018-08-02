@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using EmojiLibrary;
+using System.Linq;
 
 namespace EmojiAssembler
 {
@@ -14,11 +14,11 @@ namespace EmojiAssembler
                 string[] lines = File.ReadAllLines(path);
                 var data = Assembler.Assemble(lines);
                 File.WriteAllBytes("output.emoji", data.ToArray());
-                Console.WriteLine("Success.");
+                Console.WriteLine("\nSuccess");
             }
             else
             {
-                Console.WriteLine("Error: File not found.");
+                Console.WriteLine("\nError: File not found.");
             }
         }
     }

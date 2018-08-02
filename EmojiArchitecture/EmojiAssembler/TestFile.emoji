@@ -1,14 +1,28 @@
-﻿;print 1 to user input
-💎	r9	0x01	;init 1
-💎	r10	0x01	;init counter
+﻿					;print 1 to user input
+📟	r27	myString	;load string address into r27	
+💎	r9	0x1			;init 1
+💎	r10	0x1			;init counter
 read:
-💩	r11	0x08	;load read flag
-🍂	r11	read	;loop back if read not available
-💩	r11	0x07	;read short
+💩	r11	0x8			;load read flag
+🍂	r11	read		;loop back if read not available
+💩	r11	0x7			;read short
 loop:
-🏪	r10	0x03	;write counter
-🏪	r9	0x04	;flip write flag
-👆	r10			;add 1
-🌓	r12	r10	r11	;check counter
-🍃	r12	loop	;loop back if counter is less than user input
-🏪	r9	0x00	;exit prog
+🏪	r10	0x3			;write counter
+🏪	r9	0x4			;flip write flag
+👆	r10				;add 1
+🌓	r12	r10	r11		;check counter
+🍃	r12	loop		;loop back if counter is less than user input
+printString:
+⬆	r20	r27			;load letter into register
+💎	r19 0x0			;store null terminator
+🌕	r21	r19	r20		;check if end string
+🍃	r21	exit		;exit if end of string
+🏪	r20	0x5			;store register into writeChar
+🏪	r9	0x6			;flip write flag
+👆	r27				;move to next letter
+🌿	printString		;loop back up
+exit:
+🏪	r9	0x0			;exit prog
+
+PROGMEM
+myString: "Hello World\n"
